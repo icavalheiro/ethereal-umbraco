@@ -1,0 +1,57 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedElement>
+@inject IElementRenderService ElementRenderService
+
+@{
+    var layout = Model.GetProperty("layout").GetValue() as IEnumerable<IPublishedElement>;
+    var hexColor = Model.Value<string>("color");
+    var colorClass = "";
+
+    switch (hexColor)
+    {
+        default:
+        case "726193":
+            colorClass = "color1";
+            break;
+        case "e37b7c":
+            colorClass = "color2";
+            break;
+        case "ffe4b4":
+            colorClass = "color3";
+            break;
+        case "353865":
+            colorClass = "color4";
+            break;
+    }
+
+    var colorMode = Model.Value<string>("colorMode");
+    var sectionClass = "";
+    var titleClass = colorClass;
+    switch (colorMode)
+    {
+        default:
+        case "joined":
+            sectionClass = colorClass;
+            titleClass = "joined";
+            break;
+        case "regular":
+            sectionClass = "";
+            titleClass = colorClass;
+            break;
+        case "split":
+            sectionClass = colorClass + "-alt";
+            titleClass = colorClass;
+            break;
+    }
+
+}
+
+<!-- Panel -->
+<section class="panel @sectionClass">
+    <div class="intro @titleClass">
+        <h2 class="major">@Html.Raw(Model.Value("Title"))</h2>
+        @Html.Raw(Model.Value("description"))
+    </div>
+    @{
+        await ElementRenderService.RenderElements(Html, layout);
+    }
+</section>

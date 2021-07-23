@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedElement>
+
+<div class="inner">
+	<ul class="grid-icons three connected">
+		@foreach (var icon in Model.Value<IEnumerable<string>>("icons"))
+		{
+			<li><span class="icon solid fa-@icon"><span class="label">@icon</span></span></li>
+		}
+	</ul>
+</div>

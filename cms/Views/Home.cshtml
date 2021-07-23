@@ -1,0 +1,13 @@
+﻿@inject IElementRenderService ElementRenderService
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@{
+	Layout = "_Layout.cshtml";
+
+	ViewData["Title"] = "Home";
+
+	var layout = Model.GetProperty("layout").GetValue() as IEnumerable<IPublishedElement>;
+}
+
+@{
+	await ElementRenderService.RenderElements(Html, layout);
+}

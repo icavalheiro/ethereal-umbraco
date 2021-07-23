@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedElement>
+
+@{
+    var imgPicker = Model.Value("headerImage") as MediaWithCrops<Image>;
+    var imgUrl = imgPicker.Url();
+
+    var aligning = Model.Value("aligning") as string;
+    var textAlign = aligning == "left" ? "right" : "left";
+
+    var size = Model.Value<string>("size");
+
+    var spanSize = "span-7";
+
+    if (size == "large")
+        spanSize = "span-5";
+}
+
+<!-- Panel (Spotlight) -->
+<section class="panel spotlight @size @textAlign" id='@Model.Value("anchorId")'>
+    <div class="content @spanSize">
+        <h2 class="major">@Html.Raw(Model.Value("title"))</h2>
+        @Html.Raw(Model.Value("description"))
+    </div>
+    <div class="image filtered tinted" data-position="top @aligning">
+        <img src='@imgUrl' alt="" />
+    </div>
+</section>

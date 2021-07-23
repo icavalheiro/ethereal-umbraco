@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedElement>
+@{
+    var img1Picker = Model.Value("image1") as MediaWithCrops<Image>;
+    var img1Url = img1Picker.Url();
+    var img1UrlThumb = img1Picker.GetCropUrl(900, 450);
+
+    var img2Picker = Model.Value("image2") as MediaWithCrops<Image>;
+    var img2Url = img2Picker.Url();
+    var img2UrlThumb = img2Picker.GetCropUrl(450, 450);
+
+    var img3Picker = Model.Value("image3") as MediaWithCrops<Image>;
+    var img3Url = img3Picker.Url();
+    var img3UrlThumb = img3Picker.GetCropUrl(450, 450);
+
+}
+
+<div class="gallery">
+    <div class="group span-3">
+        <a href="@img1Url" class="image filtered span-3" data-position="bottom">
+            <img src="@img1UrlThumb" alt="" />
+        </a>
+        <a href="@img2Url" class="image filtered span-1-5" data-position="center">
+            <img src="@img2UrlThumb" alt="" />
+        </a>
+        <a href="@img3Url" class="image filtered span-1-5" data-position="bottom">
+            <img src="@img3UrlThumb" alt="" />
+        </a>
+    </div>
+</div>
