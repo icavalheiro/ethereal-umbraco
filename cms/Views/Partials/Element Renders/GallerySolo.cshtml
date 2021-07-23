@@ -1,6 +1,6 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedElement>
 @{
-    var imgPicker = Model.Value("image") as MediaWithCrops<Image>;
+    var imgPicker = Model.Value("image") as MediaWithCrops;
     var imgUrl = imgPicker.Url();
     var imgUrlThumb = imgPicker.GetCropUrl(675, 900);
 }

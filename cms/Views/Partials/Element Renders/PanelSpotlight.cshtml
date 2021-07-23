@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedElement>
 
 @{
-    var imgPicker = Model.Value("headerImage") as MediaWithCrops<Image>;
+    var imgPicker = Model.Value("headerImage") as MediaWithCrops;
     var imgUrl = imgPicker.Url();
 
     var aligning = Model.Value("aligning") as string;
