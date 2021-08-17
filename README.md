@@ -1,7 +1,7 @@
-# Etherium On Umbraco 9 and docker!
+# Ethereal On Umbraco 9 and docker!
 
 This is a POC project to follow up on Umbraco 9 development on linux and how its running on docker.
-I've imported the HTML5up! Etherium template into Umbraco.
+I've imported the HTML5up! Ethereal template into Umbraco.
 
 Currently the docker is setup for development only.
 
